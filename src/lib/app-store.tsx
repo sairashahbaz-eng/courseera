@@ -18,15 +18,19 @@ export type Profile = {
 };
 
 type Store = {
+  hydrated: boolean;
   user: User | null;
   profile: Profile | null;
   interests: string[];
   cart: Course[];
+
   signUp: (u: User) => { error?: string };
   signIn: (email: string, password: string) => { error?: string };
   signOut: () => void;
+
   saveProfile: (p: Profile) => void;
   setInterests: (i: string[]) => void;
+
   addToCart: (c: Course) => void;
   removeFromCart: (id: string) => void;
   clearCart: () => void;
@@ -80,6 +84,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const cart = email ? state.carts[email] ?? [] : [];
 
   const store: Store = {
+    hydrated,
     user,
     profile,
     interests,
