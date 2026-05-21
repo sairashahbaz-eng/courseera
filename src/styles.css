@@ -157,11 +157,91 @@
   }
 }
 
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -40px) scale(1.05); }
+  50% { transform: translate(-20px, -20px) scale(0.95); }
+  75% { transform: translate(40px, 20px) scale(1.02); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(40px, -30px) rotate(3deg); }
+  66% { transform: translate(-30px, 20px) rotate(-2deg); }
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes blob-morph {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  50% { border-radius: 50% 60% 30% 60% / 30% 40% 70% 50%; }
+  75% { border-radius: 60% 30% 60% 40% / 70% 50% 30% 60%; }
+}
+
 @layer utilities {
   .text-gradient-primary {
     background: linear-gradient(135deg, #159A9C, #DEEFE7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .animate-gradient-flow {
+    background-size: 300% 300%;
+    animation: gradient-flow 8s ease infinite;
+  }
+
+  .animate-float {
+    animation: float 12s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 18s ease-in-out infinite;
+  }
+
+  .animate-orbit {
+    animation: orbit 20s linear infinite;
+  }
+
+  .animate-shimmer {
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .animate-blob-morph {
+    animation: blob-morph 10s ease-in-out infinite;
+  }
+
+  .bg-animated-hero {
+    background: linear-gradient(135deg, #0a4a5a 0%, #159A9C 25%, #0d5a6a 50%, #159A9C 75%, #0a3a4a 100%);
+    background-size: 300% 300%;
+    animation: gradient-flow 10s ease infinite;
+  }
+
+  .bg-animated-light {
+    background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 25%, #80deea 50%, #b2ebf2 75%, #e0f7fa 100%);
+    background-size: 300% 300%;
+    animation: gradient-flow 12s ease infinite;
+  }
+
+  .bg-animated-warm {
+    background: linear-gradient(135deg, #159A9C 0%, #1ab3b5 25%, #0d7a7c 50%, #1ab3b5 75%, #159A9C 100%);
+    background-size: 300% 300%;
+    animation: gradient-flow 8s ease infinite;
   }
 }
