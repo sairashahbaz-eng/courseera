@@ -20,7 +20,9 @@ function InterestsPage() {
   const navigate = useNavigate();
   const [selected, setSelected] = useState<string[]>(interests);
 
-  if (!user) return <Navigate to="/auth" />;
+  if (!hydrated) return null;
+
+if (!user) return <Navigate to="/auth" />;
 
   function toggle(i: string) {
     setSelected((s) => s.includes(i) ? s.filter((x) => x !== i) : [...s, i]);
