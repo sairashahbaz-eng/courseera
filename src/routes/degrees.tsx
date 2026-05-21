@@ -12,7 +12,9 @@ function DegreesPage() {
     <div className="min-h-screen bg-background">
       <AppNav />
 
-      <section className="bg-gradient-to-br from-[#002333] to-[#0d3a4a] text-white py-16">
+      <section className="relative overflow-hidden bg-animated-warm text-white py-16">
+        <div className="absolute top-5 left-10 h-64 w-64 rounded-full bg-[#1ab3b5]/35 blur-[70px] animate-float" />
+        <div className="absolute bottom-5 right-10 h-56 w-56 rounded-full bg-[#DEEFE7]/20 blur-[60px] animate-float-slow" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 animate-in fade-in slide-in-from-bottom-4">
           <p className="text-xs font-bold uppercase tracking-widest text-[#DEEFE7]">Degrees & Certifications</p>
           <h1 className="mt-2 text-4xl sm:text-5xl font-black tracking-tight">Earn a degree from world-class universities</h1>

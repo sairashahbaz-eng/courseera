@@ -36,9 +36,11 @@ function HomePage() {
       <AppNav onSearch={setSearch} />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#002333] via-[#0d3a4a] to-[#159A9C] text-white">
-        <div className="absolute top-20 -left-20 h-96 w-96 rounded-full bg-primary/40 blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-[#DEEFE7]/20 blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+      <section className="relative overflow-hidden bg-animated-hero text-white">
+        <div className="absolute top-10 -left-10 h-[22rem] w-[22rem] rounded-full bg-[#1ab3b5]/40 blur-[80px] animate-float" />
+        <div className="absolute bottom-10 right-10 h-[20rem] w-[20rem] rounded-full bg-[#DEEFE7]/20 blur-[80px] animate-float-slow" />
+        <div className="absolute top-1/2 left-1/3 h-64 w-64 rounded-full bg-[#0d7a7c]/30 blur-[70px] animate-blob-morph animate-float" style={{ animationDuration: "16s" }} />
+        <div className="absolute top-20 right-1/4 h-32 w-32 rounded-full bg-[#159A9C]/30 blur-2xl animate-orbit" style={{ animationDuration: "22s" }} />
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-24">
           <div className="max-w-3xl animate-in fade-in slide-in-from-bottom-6 duration-700">
@@ -163,7 +165,9 @@ function HomePage() {
       </section>
 
       {/* About */}
-      <section className="bg-gradient-to-br from-[#002333] to-[#0d3a4a] text-white py-20">
+      <section className="relative overflow-hidden bg-animated-warm text-white py-20">
+        <div className="absolute top-10 left-10 h-72 w-72 rounded-full bg-[#1ab3b5]/30 blur-[80px] animate-float-slow" />
+        <div className="absolute bottom-10 right-10 h-64 w-64 rounded-full bg-[#DEEFE7]/15 blur-[70px] animate-float" />
         <div className="mx-auto max-w-6xl px-4 sm:px-6 grid lg:grid-cols-2 gap-10 items-center">
           <div className="animate-in fade-in slide-in-from-left-4 duration-700">
             <span className="text-xs font-bold uppercase tracking-widest text-[#DEEFE7]">About CourseMind</span>

@@ -34,9 +34,10 @@ function AuthPage() {
   return (
     <div className="min-h-screen flex">
       {/* Left brand panel */}
-      <div className="hidden lg:flex flex-1 relative overflow-hidden bg-gradient-to-br from-[#002333] via-[#0d3a4a] to-[#159A9C] items-center justify-center p-12">
-        <div className="absolute top-20 left-20 h-72 w-72 rounded-full bg-primary/30 blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-20 h-72 w-72 rounded-full bg-[#DEEFE7]/20 blur-3xl animate-pulse" />
+      <div className="hidden lg:flex flex-1 relative overflow-hidden bg-animated-warm items-center justify-center p-12">
+        <div className="absolute top-20 left-20 h-80 w-80 rounded-full bg-[#1ab3b5]/40 blur-[90px] animate-float" />
+        <div className="absolute bottom-20 right-20 h-72 w-72 rounded-full bg-[#DEEFE7]/30 blur-[80px] animate-float-slow" />
+        <div className="absolute top-1/2 left-1/2 h-64 w-64 rounded-full bg-[#0d7a7c]/30 blur-[70px] animate-blob-morph animate-float" style={{ animationDuration: "14s" }} />
         <div className="relative text-white max-w-md animate-in fade-in slide-in-from-left-8 duration-700">
           <Link to="/" className="inline-flex items-center gap-3 mb-10">
             <div className="h-12 w-12 rounded-2xl bg-white/95 flex items-center justify-center shadow-xl">

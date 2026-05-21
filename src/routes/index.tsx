@@ -22,10 +22,12 @@ function Splash() {
   }, [navigate, user]);
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-[#002333] via-[#0d3a4a] to-[#159A9C] flex items-center justify-center overflow-hidden">
-      {/* Animated blobs */}
-      <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-primary/30 blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-[#DEEFE7]/20 blur-3xl animate-pulse" style={{ animationDelay: "0.5s" }} />
+    <div className="fixed inset-0 bg-animated-hero flex items-center justify-center overflow-hidden">
+      {/* Animated flowing blobs */}
+      <div className="absolute top-1/4 left-1/4 h-[28rem] w-[28rem] rounded-full bg-[#1ab3b5]/40 blur-[100px] animate-float" />
+      <div className="absolute bottom-1/4 right-1/4 h-[24rem] w-[24rem] rounded-full bg-[#0d5a6a]/50 blur-[100px] animate-float-slow" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[20rem] w-[20rem] rounded-full bg-[#159A9C]/30 blur-[80px] animate-blob-morph animate-float" style={{ animationDuration: "15s" }} />
+      <div className="absolute top-10 right-10 h-40 w-40 rounded-full bg-[#DEEFE7]/20 blur-2xl animate-orbit" style={{ animationDuration: "25s" }} />
 
       <div className="relative text-center">
         <div className={`mx-auto mb-6 transition-all duration-700 ${phase >= 0 ? "scale-100 opacity-100" : "scale-50 opacity-0"}`}>
