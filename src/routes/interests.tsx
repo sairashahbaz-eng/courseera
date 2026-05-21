@@ -16,7 +16,7 @@ const ICONS: Record<string, string> = {
 };
 
 function InterestsPage() {
-  const { user, interests, setInterests } = useApp();
+  const { user, interests, setInterests, hydrated } = useApp();
   const navigate = useNavigate();
   const [selected, setSelected] = useState<string[]>(interests);
 
