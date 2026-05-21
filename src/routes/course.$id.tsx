@@ -34,8 +34,10 @@ function CoursePage() {
     <div className="min-h-screen bg-background">
       <AppNav />
 
-      <div className="relative bg-gradient-to-br from-[#002333] via-[#0d3a4a] to-[#159A9C] text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
+      <div className="relative bg-animated-hero text-white overflow-hidden">
+        <div className="absolute top-10 left-10 h-72 w-72 rounded-full bg-[#1ab3b5]/30 blur-[80px] animate-float" />
+        <div className="absolute bottom-10 right-1/3 h-64 w-64 rounded-full bg-[#DEEFE7]/15 blur-[70px] animate-float-slow" />
+        <div className="absolute inset-0 opacity-20">
           <img src={course.image} alt="" className="w-full h-full object-cover blur-2xl" />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-12 grid lg:grid-cols-3 gap-8">
