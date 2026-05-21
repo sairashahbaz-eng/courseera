@@ -8,7 +8,7 @@ export const Route = createFileRoute("/profile")({
 });
 
 function ProfilePage() {
-  const { user, saveProfile, profile } = useApp();
+  const { user, saveProfile, profile, hydrated } = useApp();
   const navigate = useNavigate();
   const [name, setName] = useState(profile?.name ?? "");
   const [dob, setDob] = useState(profile?.dob ?? "");
