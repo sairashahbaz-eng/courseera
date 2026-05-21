@@ -20,7 +20,9 @@ function ProfilePage() {
   const [skillInput, setSkillInput] = useState("");
   const [certInput, setCertInput] = useState("");
 
-  if (!user) return <Navigate to="/auth" />;
+  if (!hydrated) return null;
+
+if (!user) return <Navigate to="/auth" />;
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
