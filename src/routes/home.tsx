@@ -165,7 +165,9 @@ function HomePage() {
       </section>
 
       {/* About */}
-      <section className="bg-gradient-to-br from-[#002333] to-[#0d3a4a] text-white py-20">
+      <section className="relative overflow-hidden bg-animated-warm text-white py-20">
+        <div className="absolute top-10 left-10 h-72 w-72 rounded-full bg-[#1ab3b5]/30 blur-[80px] animate-float-slow" />
+        <div className="absolute bottom-10 right-10 h-64 w-64 rounded-full bg-[#DEEFE7]/15 blur-[70px] animate-float" />
         <div className="mx-auto max-w-6xl px-4 sm:px-6 grid lg:grid-cols-2 gap-10 items-center">
           <div className="animate-in fade-in slide-in-from-left-4 duration-700">
             <span className="text-xs font-bold uppercase tracking-widest text-[#DEEFE7]">About CourseMind</span>
