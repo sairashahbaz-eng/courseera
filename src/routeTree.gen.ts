@@ -9,49 +9,24 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ProfileRouteImport } from './routes/profile'
-import { Route as InterestsRouteImport } from './routes/interests'
-import { Route as HomeRouteImport } from './routes/home'
-import { Route as ExploreRouteImport } from './routes/explore'
-import { Route as DegreesRouteImport } from './routes/degrees'
-import { Route as CartRouteImport } from './routes/cart'
-import { Route as AuthRouteImport } from './routes/auth'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as CourseIdRouteImport } from './routes/course.$id'
+import { Route as AuthenticatedRepsRouteImport } from './routes/_authenticated/reps'
+import { Route as AuthenticatedDealsRouteImport } from './routes/_authenticated/deals'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedCompPlansRouteImport } from './routes/_authenticated/comp-plans'
+import { Route as AuthenticatedAiChatRouteImport } from './routes/_authenticated/ai-chat'
+import { Route as AuthenticatedRepsIndexRouteImport } from './routes/_authenticated/reps.index'
+import { Route as AuthenticatedRepsRepIdRouteImport } from './routes/_authenticated/reps.$repId'
 
-const ProfileRoute = ProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
-const InterestsRoute = InterestsRouteImport.update({
-  id: '/interests',
-  path: '/interests',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HomeRoute = HomeRouteImport.update({
-  id: '/home',
-  path: '/home',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ExploreRoute = ExploreRouteImport.update({
-  id: '/explore',
-  path: '/explore',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DegreesRoute = DegreesRouteImport.update({
-  id: '/degrees',
-  path: '/degrees',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CartRoute = CartRouteImport.update({
-  id: '/cart',
-  path: '/cart',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AuthRoute = AuthRouteImport.update({
-  id: '/auth',
-  path: '/auth',
+const AuthenticatedRoute = AuthenticatedRouteImport.update({
+  id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -59,143 +34,132 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CourseIdRoute = CourseIdRouteImport.update({
-  id: '/course/$id',
-  path: '/course/$id',
-  getParentRoute: () => rootRouteImport,
+const AuthenticatedRepsRoute = AuthenticatedRepsRouteImport.update({
+  id: '/reps',
+  path: '/reps',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedDealsRoute = AuthenticatedDealsRouteImport.update({
+  id: '/deals',
+  path: '/deals',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedCompPlansRoute = AuthenticatedCompPlansRouteImport.update({
+  id: '/comp-plans',
+  path: '/comp-plans',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedAiChatRoute = AuthenticatedAiChatRouteImport.update({
+  id: '/ai-chat',
+  path: '/ai-chat',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedRepsIndexRoute = AuthenticatedRepsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AuthenticatedRepsRoute,
+} as any)
+const AuthenticatedRepsRepIdRoute = AuthenticatedRepsRepIdRouteImport.update({
+  id: '/$repId',
+  path: '/$repId',
+  getParentRoute: () => AuthenticatedRepsRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/auth': typeof AuthRoute
-  '/cart': typeof CartRoute
-  '/degrees': typeof DegreesRoute
-  '/explore': typeof ExploreRoute
-  '/home': typeof HomeRoute
-  '/interests': typeof InterestsRoute
-  '/profile': typeof ProfileRoute
-  '/course/$id': typeof CourseIdRoute
+  '/login': typeof LoginRoute
+  '/ai-chat': typeof AuthenticatedAiChatRoute
+  '/comp-plans': typeof AuthenticatedCompPlansRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/deals': typeof AuthenticatedDealsRoute
+  '/reps': typeof AuthenticatedRepsRouteWithChildren
+  '/reps/$repId': typeof AuthenticatedRepsRepIdRoute
+  '/reps/': typeof AuthenticatedRepsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/auth': typeof AuthRoute
-  '/cart': typeof CartRoute
-  '/degrees': typeof DegreesRoute
-  '/explore': typeof ExploreRoute
-  '/home': typeof HomeRoute
-  '/interests': typeof InterestsRoute
-  '/profile': typeof ProfileRoute
-  '/course/$id': typeof CourseIdRoute
+  '/login': typeof LoginRoute
+  '/ai-chat': typeof AuthenticatedAiChatRoute
+  '/comp-plans': typeof AuthenticatedCompPlansRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/deals': typeof AuthenticatedDealsRoute
+  '/reps/$repId': typeof AuthenticatedRepsRepIdRoute
+  '/reps': typeof AuthenticatedRepsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/auth': typeof AuthRoute
-  '/cart': typeof CartRoute
-  '/degrees': typeof DegreesRoute
-  '/explore': typeof ExploreRoute
-  '/home': typeof HomeRoute
-  '/interests': typeof InterestsRoute
-  '/profile': typeof ProfileRoute
-  '/course/$id': typeof CourseIdRoute
+  '/_authenticated': typeof AuthenticatedRouteWithChildren
+  '/login': typeof LoginRoute
+  '/_authenticated/ai-chat': typeof AuthenticatedAiChatRoute
+  '/_authenticated/comp-plans': typeof AuthenticatedCompPlansRoute
+  '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_authenticated/deals': typeof AuthenticatedDealsRoute
+  '/_authenticated/reps': typeof AuthenticatedRepsRouteWithChildren
+  '/_authenticated/reps/$repId': typeof AuthenticatedRepsRepIdRoute
+  '/_authenticated/reps/': typeof AuthenticatedRepsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/auth'
-    | '/cart'
-    | '/degrees'
-    | '/explore'
-    | '/home'
-    | '/interests'
-    | '/profile'
-    | '/course/$id'
+    | '/login'
+    | '/ai-chat'
+    | '/comp-plans'
+    | '/dashboard'
+    | '/deals'
+    | '/reps'
+    | '/reps/$repId'
+    | '/reps/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/auth'
-    | '/cart'
-    | '/degrees'
-    | '/explore'
-    | '/home'
-    | '/interests'
-    | '/profile'
-    | '/course/$id'
+    | '/login'
+    | '/ai-chat'
+    | '/comp-plans'
+    | '/dashboard'
+    | '/deals'
+    | '/reps/$repId'
+    | '/reps'
   id:
     | '__root__'
     | '/'
-    | '/auth'
-    | '/cart'
-    | '/degrees'
-    | '/explore'
-    | '/home'
-    | '/interests'
-    | '/profile'
-    | '/course/$id'
+    | '/_authenticated'
+    | '/login'
+    | '/_authenticated/ai-chat'
+    | '/_authenticated/comp-plans'
+    | '/_authenticated/dashboard'
+    | '/_authenticated/deals'
+    | '/_authenticated/reps'
+    | '/_authenticated/reps/$repId'
+    | '/_authenticated/reps/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AuthRoute: typeof AuthRoute
-  CartRoute: typeof CartRoute
-  DegreesRoute: typeof DegreesRoute
-  ExploreRoute: typeof ExploreRoute
-  HomeRoute: typeof HomeRoute
-  InterestsRoute: typeof InterestsRoute
-  ProfileRoute: typeof ProfileRoute
-  CourseIdRoute: typeof CourseIdRoute
+  AuthenticatedRoute: typeof AuthenticatedRouteWithChildren
+  LoginRoute: typeof LoginRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/profile': {
-      id: '/profile'
-      path: '/profile'
-      fullPath: '/profile'
-      preLoaderRoute: typeof ProfileRouteImport
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/interests': {
-      id: '/interests'
-      path: '/interests'
-      fullPath: '/interests'
-      preLoaderRoute: typeof InterestsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/home': {
-      id: '/home'
-      path: '/home'
-      fullPath: '/home'
-      preLoaderRoute: typeof HomeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/explore': {
-      id: '/explore'
-      path: '/explore'
-      fullPath: '/explore'
-      preLoaderRoute: typeof ExploreRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/degrees': {
-      id: '/degrees'
-      path: '/degrees'
-      fullPath: '/degrees'
-      preLoaderRoute: typeof DegreesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cart': {
-      id: '/cart'
-      path: '/cart'
-      fullPath: '/cart'
-      preLoaderRoute: typeof CartRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthRouteImport
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -205,26 +169,95 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/course/$id': {
-      id: '/course/$id'
-      path: '/course/$id'
-      fullPath: '/course/$id'
-      preLoaderRoute: typeof CourseIdRouteImport
-      parentRoute: typeof rootRouteImport
+    '/_authenticated/reps': {
+      id: '/_authenticated/reps'
+      path: '/reps'
+      fullPath: '/reps'
+      preLoaderRoute: typeof AuthenticatedRepsRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/deals': {
+      id: '/_authenticated/deals'
+      path: '/deals'
+      fullPath: '/deals'
+      preLoaderRoute: typeof AuthenticatedDealsRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/comp-plans': {
+      id: '/_authenticated/comp-plans'
+      path: '/comp-plans'
+      fullPath: '/comp-plans'
+      preLoaderRoute: typeof AuthenticatedCompPlansRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/ai-chat': {
+      id: '/_authenticated/ai-chat'
+      path: '/ai-chat'
+      fullPath: '/ai-chat'
+      preLoaderRoute: typeof AuthenticatedAiChatRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/reps/': {
+      id: '/_authenticated/reps/'
+      path: '/'
+      fullPath: '/reps/'
+      preLoaderRoute: typeof AuthenticatedRepsIndexRouteImport
+      parentRoute: typeof AuthenticatedRepsRoute
+    }
+    '/_authenticated/reps/$repId': {
+      id: '/_authenticated/reps/$repId'
+      path: '/$repId'
+      fullPath: '/reps/$repId'
+      preLoaderRoute: typeof AuthenticatedRepsRepIdRouteImport
+      parentRoute: typeof AuthenticatedRepsRoute
     }
   }
 }
 
+interface AuthenticatedRepsRouteChildren {
+  AuthenticatedRepsRepIdRoute: typeof AuthenticatedRepsRepIdRoute
+  AuthenticatedRepsIndexRoute: typeof AuthenticatedRepsIndexRoute
+}
+
+const AuthenticatedRepsRouteChildren: AuthenticatedRepsRouteChildren = {
+  AuthenticatedRepsRepIdRoute: AuthenticatedRepsRepIdRoute,
+  AuthenticatedRepsIndexRoute: AuthenticatedRepsIndexRoute,
+}
+
+const AuthenticatedRepsRouteWithChildren =
+  AuthenticatedRepsRoute._addFileChildren(AuthenticatedRepsRouteChildren)
+
+interface AuthenticatedRouteChildren {
+  AuthenticatedAiChatRoute: typeof AuthenticatedAiChatRoute
+  AuthenticatedCompPlansRoute: typeof AuthenticatedCompPlansRoute
+  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedDealsRoute: typeof AuthenticatedDealsRoute
+  AuthenticatedRepsRoute: typeof AuthenticatedRepsRouteWithChildren
+}
+
+const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
+  AuthenticatedAiChatRoute: AuthenticatedAiChatRoute,
+  AuthenticatedCompPlansRoute: AuthenticatedCompPlansRoute,
+  AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedDealsRoute: AuthenticatedDealsRoute,
+  AuthenticatedRepsRoute: AuthenticatedRepsRouteWithChildren,
+}
+
+const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(
+  AuthenticatedRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AuthRoute: AuthRoute,
-  CartRoute: CartRoute,
-  DegreesRoute: DegreesRoute,
-  ExploreRoute: ExploreRoute,
-  HomeRoute: HomeRoute,
-  InterestsRoute: InterestsRoute,
-  ProfileRoute: ProfileRoute,
-  CourseIdRoute: CourseIdRoute,
+  AuthenticatedRoute: AuthenticatedRouteWithChildren,
+  LoginRoute: LoginRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
